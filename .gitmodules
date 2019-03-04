@@ -1,0 +1,3 @@
+[submodule "qgnet"]
+	path = qgnet
+	url = https://github.com/moonlightlane/QG-Net.git
