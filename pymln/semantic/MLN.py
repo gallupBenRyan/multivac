@@ -13,7 +13,7 @@ class MLN(object):
 
     '''
     def __init__(self):
-        return None
+        self.cluster_obj = None
 
     def printModel(path):
         clustering = MLN.printClustering(path)
@@ -90,12 +90,16 @@ class MLN(object):
         else:
             return None
 
-    def printMLN(path=None):
+    # def save_clust(self, dst):
+    #     with open(dst, 'wb') as f:
+    #         pickle.dump(f)
+
+    def printMLN(self, path=None):
         out_str = ""
 
         for ci in Clust.clusts:
             cl = Clust.getClust(ci)
-            out_str = "{}\t{}\n".format(cl._clustIdx,cl)
+            out_str += "{}\t{}\n".format(cl._clustIdx,cl)
 
             for aci in cl._argClusts:
                 ac = cl._argClusts[aci]
@@ -127,7 +131,7 @@ class MLN(object):
             return out_str
 
 
-    def printParse(path=None):
+    def printParse(self, path=None):
         out_str = ""
 
         for rnid, pt in Part.rootNodeId_part.items():

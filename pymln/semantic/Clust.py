@@ -50,28 +50,32 @@ class Clust(object):
 
         return None
 
+    @staticmethod
     def createClust(relTypeIdx):
         # Should this all go in __init__()?
         cl = Clust(relTypeIdx)
 
         return cl.getId()
 
+    @staticmethod
     def genArgCombStr(clustIdx, clustIdxs):
         s = ':'.join([str(x) for x in [clustIdx] + clustIdxs])
-
         return s
 
+    @staticmethod
     def getClust(idx):
         if idx in Clust.clusts:
             return Clust.clusts[idx]
         else:
             return None
 
+    @staticmethod
     def getClustsWithRelType(relTypeIdx):
         if relTypeIdx in Clust.relTypeIdx_clustIdx:
             return Clust.relTypeIdx_clustIdx[relTypeIdx]
         else:
             return None
+
 
     def removeClust(clust):
         del Clust.clusts[clust._clustIdx]
@@ -93,6 +97,7 @@ class Clust(object):
             p.unsetRelType()
 
         for nid, p in nid_part.items():
+            import ipdb; ipdb.set_trace()
             pclust = getClustIdx()
             Part.clustIdx_partRootNodeIds[pclust].remove(p.getRelTreeRoot().getId())
 
@@ -145,7 +150,6 @@ class Clust(object):
         self._argClusts = {}
 
         Clust.clusts[self._clustIdx] = self
-
 
     def __str__(self):
         return self.toString()

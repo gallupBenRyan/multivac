@@ -9,7 +9,6 @@ from multivac.src import utilities
 
 cfg = configparser.ConfigParser()
 cfgDIR = Path(__file__).resolve().parent
-
 try:
     cfg.read(cfgDIR / config_file_name)
 except NameError:

@@ -1,12 +1,15 @@
 # directories
 /data/
 /models/
+/scratch_notebooks/peter/
+/stanford_nlp_models
 
 # environment
 multivac/
 .env
 src/pubmed-parser
 src/slate
+.idea
 
 # juypter notebook
 .ipynb_checkpoints
